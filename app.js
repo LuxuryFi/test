@@ -46,16 +46,18 @@ app.post('/doInsert',async (req,res)=>{
     if (error) {
         res.render('newProduct', {error: error});
     }
-
+    else {
+        let client= await MongoClient.connect(url);  
+        let dbo = client.db("ProductDB2"); 
+        let newProduct = {productName : nameInput, price:priceInput};
+        await dbo.collection("products").insertOne(newProduct);
+    
+        res.redirect('/');
+    }
     
 
 
-    let client= await MongoClient.connect(url);  
-    let dbo = client.db("ProductDB2"); 
-    let newProduct = {productName : nameInput, price:priceInput};
-    await dbo.collection("products").insertOne(newProduct);
-   
-    res.redirect('/');
+    
 })
 
 app.get('/search',(req,res)=>{
