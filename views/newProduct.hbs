@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+</head>
+<body>
+    <h1>New product</h1>
+    <form action="/doInsert" method="post">
+        Name: <input type="text" name="txtName" id="">
+        <br>
+        Price: <input type="text" name="txtPrice" id="">
+        <br>
+        <input type="submit" value="Create">
+    </form>
+    <h2 class="alert alert-danger">{{{error}}}</h2>
+    {{> footer}}
+</body>
+</html>

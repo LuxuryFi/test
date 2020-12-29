@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+</head>
+<body>
+    <h1>New product</h1>
+    <form action="/doEdit" method="post">
+        <input type="hidden" name="id" value="{{model._id}}">
+        Name: <input type="text" name="txtName" value="{{model.productName}}">
+        <br>
+        Price: <input type="text" name="txtPrice" value="{{model.price}}">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+    {{> footer}}
+</body>
+</html>

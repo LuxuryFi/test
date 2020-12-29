@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>All Products</h1>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Color</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+        {{# each model}}
+            <tr>
+                <td>{{productName}}</td>
+                <td>{{Price}}</td>
+                <td>{{color}}</td>
+                <td><a href="/delete?id={{_id}}" onclick="return confirmXoa('{{productName}}')">Delete</a></td>
+                <td><a href="/Edit?id={{_id}}">Edit</a></td>
+            </tr>   
+        {{/each}} 
+    </table>
+    {{> footer}}
+    <script>
+        function confirmXoa(name){
+            let r = confirm('Ban co muon xoa ' + name + '?');
+            return r;
+        }
+    </script>
+</body>
+</html>
