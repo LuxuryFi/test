@@ -32,7 +32,7 @@ app.post('/doInsert',async (req,res)=>{
     let dateInput = new Date(req.body.dateTime);
     let todayDate = new Date();
     
-    if (dateInput > todayDate){
+    if (dateInput <= todayDate){
           error += ' Ngay ko duoc bang hoac thap hon hom nay |';
     }
     if (nameInput.length < 6){
