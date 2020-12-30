@@ -29,8 +29,12 @@ app.post('/doInsert',async (req,res)=>{
     
     let error = '';
     let regex = new RegExp('sang.|sang','i');
-
-
+    let dateInput = new Date(req.body.dateTime);
+    let todayDate = new Date();
+    
+    if (dateInput > todayDate){
+          error += ' Ngay ko duoc bang hoac thap hon hom nay |';
+    }
     if (nameInput.length < 6){
         error += ' Ten phai dai hon 6 ki tu |';
     }
