@@ -9,7 +9,7 @@ app.set('view engine','hbs');
 hbs.registerPartials(__dirname +'/views/partials')
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb+srv://tommy:112233445566@cluster0.lkrga.mongodb.net/test';
+var url = 'mongodb+srv://Ender:Ender123@cluster0.plzr1.mongodb.net/test';
 app.get('/',async (req,res)=>{
     let client= await MongoClient.connect(url);  
     let dbo = client.db("ProductDB2");  
@@ -27,14 +27,10 @@ app.post('/doInsert',async (req,res)=>{
     let nameInput = req.body.txtName;
     let priceInput = req.body.txtPrice;
     
-    let error = '';
-    let regex = new RegExp('sang.|sang','i');
-    let dateInput = new Date(req.body.dateTime);
-    let todayDate = new Date();
     
-    if (dateInput <= todayDate){
-          error += ' Ngay ko duoc bang hoac thap hon hom nay |';
-    }
+    let error = '';
+    let regex = new RegExp('lan.|lan','i'); // tao chuoi regex de tim kiem gan dung
+   
     if (nameInput.length < 6){
         error += ' Ten phai dai hon 6 ki tu |';
     }
@@ -44,7 +40,7 @@ app.post('/doInsert',async (req,res)=>{
     }
 
     if (!nameInput.match(regex)){
-        error += ' Ten phai bat dau bang sang |';
+        error += ' Ten phai bat dau bang lan |';
     }
 
     if (error) {
